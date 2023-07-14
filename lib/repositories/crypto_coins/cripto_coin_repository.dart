@@ -6,6 +6,10 @@ import 'abstract_coin_repository.dart';
 
 class CryptoCoinRepository implements AbstractCoinRepository{
 
+  final Dio dio;
+
+  CryptoCoinRepository({required this.dio});
+
   @override
   Future<List<CryptoCoin>> getCoinList() async {
     final response = await Dio().get(

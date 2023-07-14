@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../../repositories/crypto_coins/abstract_coin_repository.dart';
 import '../../../repositories/crypto_coins/cripto_coin_repository.dart';
 import '../../../repositories/models/crypto_coin.dart';
 import '../widgets/widgets.dart';
@@ -44,7 +47,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
   }
 
   Future<void> _loadCryptoCoins() async {
-     _cryptoCoinList = await CryptoCoinRepository().getCoinList();
+     _cryptoCoinList = await GetIt.I<AbstractCoinRepository>().getCoinList();
     setState(() {});
   }
 }
